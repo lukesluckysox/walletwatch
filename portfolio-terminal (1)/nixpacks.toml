@@ -1,0 +1,14 @@
+# Railway uses Nixpacks to build. This ensures devDependencies
+# are installed during the build phase (needed for tsx, esbuild, vite).
+
+[phases.setup]
+nixPkgs = ["nodejs_20", "npm-9_x"]
+
+[phases.install]
+cmds = ["npm ci --include=dev"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "npm start"
